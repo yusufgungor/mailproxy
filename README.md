@@ -5,29 +5,13 @@ mailproxy is a simple SMTP proxy. It receives emails through an unencrypted, una
 * Python 3.5+
 * [aiosmtpd 1.1+](https://aiosmtpd.readthedocs.io)
 
-
-# Usage
-1. Create a config file (see below).
-2. Run mailproxy from the command line, e.g. `python mailproxy.py`.
+1. Create a virtualenv on python3.5 and switch to it.
+	# mkvirtualenv -p $(which python3.5) mailproxy
+	# workon mailproxy
+2. Install requirements: pip install -r requirements.txt
+3. Create a config file from config.ini.sample as config.ini
+4. Run mailproxy from the command line, e.g. `python mailproxy.py`.
 
 By default, mailproxy looks for a `config.ini` in its own directory.
 If you have placed your config file elsewhere, you can run mailproxy
 using `python mailproxy.py <config_file_path>`.
-
-
-# Configuration
-An example config file for a mailproxy instance that accepts emails locally on port 25 for delivery via Gmail appears below:
-```
-[local]
-host = 127.0.0.1
-port = 25
-
-[remote]
-host = smtp.gmail.com
-port = 465
-use_ssl = yes
-starttls = no
-smtp_auth = yes
-smtp_auth_user = USERNAME
-smtp_auth_password = PASSWORD
-```

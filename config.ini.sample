@@ -1,0 +1,14 @@
+; Configuration
+; An example config file for a mailproxy instance that accepts emails locally on port 25 for delivery via Gmail appears below:
+[local]
+host = 127.0.0.1
+port = 25
+
+[remote]
+host = smtp.gmail.com
+port = 587
+use_ssl = no
+starttls = yes
+smtp_auth = yes
+smtp_auth_user = USERNAME@gmail.com
+smtp_auth_password = PASSWORD

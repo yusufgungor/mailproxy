@@ -39,10 +39,10 @@ class MailProxyHandler:
         refused = {}
         try:
             if self._use_ssl:
-                s = smtplib.SMTP_SSL()
+                s = smtplib.SMTP_SSL(self._host, self._port)
             else:
-                s = smtplib.SMTP()
-            s.connect(self._host, self._port)
+                s = smtplib.SMTP(self._host, self._port)
+            #s.connect(self._host, self._port) # => We got execption: https://stackoverflow.com/questions/23616803/smtplib-smtp-starttls-fails-with-tlsv1-alert-decode-error
             if self._starttls:
                 s.starttls()
                 s.ehlo()
